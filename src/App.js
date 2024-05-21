@@ -17,15 +17,17 @@ function App() {
     setAnimal([...animal, getRamdomAnimal()]);
   }
   console.log(animal);
-  const randreAnimal = () =>{
-    return <AnimalShow type={animal} />
-  }
+
+  const getRenderedAnimals = animal.map((animal, index) => {
+    return <AnimalShow type={animal} key={index} />;
+  });
+      
   return (
 <>
 <div className='contaner'>
   <button onClick={HandleClick}>Click to Add Animal</button>
   <div className='renderedAnimals-list'>
-    {randreAnimal}
+    {getRenderedAnimals}
   </div>
 </div>
 </>
